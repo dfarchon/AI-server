@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import fetch from "node-fetch";
 import { AI_BOT_CHARACTER } from "../constants/aiBotCharacter.js";
-
+import { Filter } from "bad-words";
 // Define types for OpenAI API response
 interface OpenAIResponse {
   choices: { message: { role: string; content: string } }[];
@@ -16,6 +16,11 @@ if (!OPENAI_API_KEY) {
 }
 // In-memory conversation history
 const conversationHistory: Record<string, any[]> = {};
+
+// Initialize the filter
+const filter = new Filter({ placeHolder: "" });
+// Function to sanitize input
+const cleanMessage = (message: string): string => filter.clean(message);
 
 // Helper to call OpenAI API
 async function callOpenAI(
@@ -45,19 +50,29 @@ async function callOpenAI(
 // Start a conversation init character and user name
 router.post("/start", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
+  // temporary delete old history api/conversation/start is used only once
+  conversationHistory[username] = [];
 
   try {
     if (
       !username ||
       typeof username !== "string" ||
       !message ||
-      typeof message !== "string" ||
-      !indexedHistory ||
-      typeof indexedHistory !== "string"
+      typeof message !== "string" // ||
+      // !indexedHistory ||
+      // typeof indexedHistory !== "string"
     ) {
       return;
     }
 
+    console.log(
+      "start: ",
+      username,
+      "orig:",
+      message,
+      "cleaned:",
+      cleanMessage(message)
+    );
     const initialPrompt = [
       {
         role: "system",
@@ -65,7 +80,9 @@ router.post("/start", async (req: Request, res: Response) => {
       },
       {
         role: "user",
-        content: `conversationHistory: ${indexedHistory}, input:${message}`,
+        content: `conversationHistory: ${indexedHistory}, input:${cleanMessage(
+          message
+        )}`,
       },
     ];
     const response = await callOpenAI(initialPrompt, 150);
@@ -78,7 +95,12 @@ router.post("/start", async (req: Request, res: Response) => {
       role: "assistant",
       content: response.choices[0].message.content,
     });
-
+    console.log(
+      "assistant start user:",
+      username,
+      "-",
+      response.choices[0].message.content
+    );
     res.json(response.choices[0].message.content);
   } catch (error: any) {
     console.error("Error starting conversation:", error);
@@ -103,17 +125,29 @@ router.post("/step", async (req: Request, res: Response) => {
     console.log("history not found for user:", username);
     return;
   }
-  console.log("history", conversationHistory[username]);
+
+  console.log("step: ", username, message);
+
   try {
+    console.log(
+      "start: ",
+      username,
+      "orig:",
+      message,
+      "cleaned:",
+      cleanMessage(message)
+    );
     const response = await callOpenAI(
       [
         {
           role: "system",
-          content: `You countinue be Sophon , with conversation history for user: ${username}`,
+          content: `You countinue be Sophon , ${AI_BOT_CHARACTER.chatPrompt} , with conversation history for user: ${username}`,
         },
         {
           role: "user",
-          content: `conversationHistory: ${conversationHistory[username]} , input: ${message}`,
+          content: `conversationHistory: ${
+            conversationHistory[username]
+          } , input: ${cleanMessage(message)}`,
         },
       ],
       150
@@ -123,11 +157,34 @@ router.post("/step", async (req: Request, res: Response) => {
       role: "assistant",
       content: response.choices[0].message.content,
     });
-
+    console.log(
+      "assistant step user:",
+      username,
+      "-",
+      response.choices[0].message.content
+    );
     res.json(response.choices[0].message.content);
   } catch (error: any) {
     console.error("Error continuing conversation:", error);
     res.status(500).json({ error: error.message });
+  }
+});
+// Route to get conversation by userName
+router.get("/get_conversation/:userName", (req: Request, res: Response) => {
+  try {
+    const { userName } = req.params;
+
+    // Check if the userName exists in the conversation history
+    if (!conversationHistory[userName]) {
+      console.error("History not found for user:", userName);
+      return;
+    }
+
+    // Return the conversation for the given userName
+    res.json({ conversation: conversationHistory[userName] });
+  } catch (error: any) {
+    console.error("Error retrieving conversation:", error);
+    res.status(500).json({ error: "Error retrieving conversation:" });
   }
 });
 
