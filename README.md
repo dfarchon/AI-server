@@ -35,28 +35,22 @@ Getting Started
 Prerequisites
 Node.js v16 or higher
 TypeScript
+
 npm, yarn, or pnpm (choose your preferred package manager)
 Installation
-Clone the repository:
 
-bash
-Zkopírovat kód
+Clone the repository:
 git clone https://github.com/your-username/sophon-server.git
 cd sophon-server
-Install dependencies:
 
-bash
+Install dependencies:
 npm install
 Set up environment variables: Create a .env file in the root directory and configure it with the following:
 
 Development Mode:
-
-bash
 npm run dev
 
 Production Build:
-
-bash
 npm run build
 npm start
 

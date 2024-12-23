@@ -4,46 +4,48 @@ import conversationRoutes from "./routes/conversation.js";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 // Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Construct __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, "../public")));
 // Middleware to parse JSON
 app.use(express.json());
+
 // Rate limiting middleware
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 30, // Limit each IP to 100 requests per minute
+  max: 30, // Limit each IP to 30 requests per minute
   message: "Too many requests from this IP, please try again later.",
 });
 
-// import winston from "winston";
-// const logger = winston.createLogger({
-//   level: "info",
-//   transports: [
-//     new winston.transports.Console(),
-//     new winston.transports.File({ filename: "server.log" }),
-//   ],
-// });
+app.use(limiter); // Apply to all routes
+app.use(helmet()); // Secure app with Helmet
+app.use(
+  cors({
+    origin: [process.env.ORIGIN_WEB_CLIENT || "http://localhost:3000"], // Replace with your frontend URL
+    methods: ["GET", "POST"],
+  })
+);
 
-// logger.info(`New request: ${req.method} ${req.url}`);
+// Root endpoint
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to the SophonServerAPI!" });
+});
 
-// // Register routes
+// Register conversation routes
 app.use("/api/conversation", conversationRoutes);
 
 // Start the server
 app.listen(PORT, () => {
   console.log(`SophonServerAPI running on http://localhost:${PORT}`);
 });
-
-app.use(limiter); // Apply to all routes
-
-app.use(helmet());
-
-// app.use(
-//   cors({
-//     origin: ["https://your-frontend-domain.com"], // Allow only your frontend
-//     methods: ["GET", "POST"],
-//   })
-// );
