@@ -45,19 +45,20 @@ async function callOpenAI(
 // Start a conversation init character and user name
 router.post("/start", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
-
+  // temporary delete old history api/conversation/start is used only once
+  conversationHistory[username] = [];
   try {
     if (
       !username ||
       typeof username !== "string" ||
       !message ||
-      typeof message !== "string" ||
-      !indexedHistory ||
-      typeof indexedHistory !== "string"
+      typeof message !== "string" // ||
+      // !indexedHistory ||
+      // typeof indexedHistory !== "string"
     ) {
       return;
     }
-
+    console.log("start: ", username, message);
     const initialPrompt = [
       {
         role: "system",
@@ -78,7 +79,12 @@ router.post("/start", async (req: Request, res: Response) => {
       role: "assistant",
       content: response.choices[0].message.content,
     });
-
+    console.log(
+      "assistant start user:",
+      username,
+      "-",
+      response.choices[0].message.content
+    );
     res.json(response.choices[0].message.content);
   } catch (error: any) {
     console.error("Error starting conversation:", error);
@@ -103,13 +109,15 @@ router.post("/step", async (req: Request, res: Response) => {
     console.log("history not found for user:", username);
     return;
   }
-  console.log("history", conversationHistory[username]);
+
+  console.log("step: ", username, message);
+
   try {
     const response = await callOpenAI(
       [
         {
           role: "system",
-          content: `You countinue be Sophon , with conversation history for user: ${username}`,
+          content: `You countinue be Sophon ,, ${AI_BOT_CHARACTER.chatPrompt} , with conversation history for user: ${username}`,
         },
         {
           role: "user",
@@ -123,7 +131,12 @@ router.post("/step", async (req: Request, res: Response) => {
       role: "assistant",
       content: response.choices[0].message.content,
     });
-
+    console.log(
+      "assistant step user:",
+      username,
+      "-",
+      response.choices[0].message.content
+    );
     res.json(response.choices[0].message.content);
   } catch (error: any) {
     console.error("Error continuing conversation:", error);
