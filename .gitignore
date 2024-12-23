@@ -1,0 +1,32 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Build outputs
+dist/
+build/
+out/
+
+# Temporary files and caches
+*.tmp
+*.temp
+*.cache
+.cache/
+.tmp/
+
+# TypeScript
+*.tsbuildinfo
+
+
+# Git files
+.git/
+*.gitignore.bak
