@@ -14,6 +14,8 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 if (!OPENAI_API_KEY) {
   throw new Error("Missing OpenAI API key in environment variables.");
 }
+// In-memory conversation history
+const conversationHistory: Record<string, any[]> = {};
 
 // Helper to call OpenAI API
 async function callOpenAI(
@@ -40,18 +42,42 @@ async function callOpenAI(
   return data;
 }
 
-// Start a conversation
+// Start a conversation init character and user name
 router.post("/start", async (req: Request, res: Response) => {
-  const { username } = req.body;
+  const { username, message, indexedHistory } = req.body;
 
   try {
-    const response = await callOpenAI(
-      [
-        { role: "system", content: AI_BOT_CHARACTER.chatPrompt },
-        { role: "user", content: `Start a conversation. User: ${username}` },
-      ],
-      150
-    );
+    if (
+      !username ||
+      typeof username !== "string" ||
+      !message ||
+      typeof message !== "string" ||
+      !indexedHistory ||
+      typeof indexedHistory !== "string"
+    ) {
+      return;
+    }
+
+    const initialPrompt = [
+      {
+        role: "system",
+        content: `You are Sophon! , ${AI_BOT_CHARACTER.chatPrompt} , and you speak with user: ${username} , start conversation`,
+      },
+      {
+        role: "user",
+        content: `conversationHistory: ${indexedHistory}, input:${message}`,
+      },
+    ];
+    const response = await callOpenAI(initialPrompt, 150);
+
+    // Save conversation history
+    conversationHistory[username] = initialPrompt;
+
+    // Append AI response to the history
+    conversationHistory[username].push({
+      role: "assistant",
+      content: response.choices[0].message.content,
+    });
 
     res.json(response.choices[0].message.content);
   } catch (error: any) {
@@ -62,16 +88,41 @@ router.post("/start", async (req: Request, res: Response) => {
 
 // Continue a conversation
 router.post("/step", async (req: Request, res: Response) => {
-  const { message } = req.body;
+  const { username, message } = req.body;
 
+  if (
+    !username ||
+    typeof username !== "string" ||
+    !message ||
+    typeof message !== "string"
+  ) {
+    return;
+  }
+
+  if (!conversationHistory[username]) {
+    console.log("history not found for user:", username);
+    return;
+  }
+  console.log("history", conversationHistory[username]);
   try {
     const response = await callOpenAI(
       [
-        { role: "system", content: AI_BOT_CHARACTER.chatPrompt },
-        { role: "user", content: message },
+        {
+          role: "system",
+          content: `You countinue be Sophon , with conversation history for user: ${username}`,
+        },
+        {
+          role: "user",
+          content: `conversationHistory: ${conversationHistory[username]} , input: ${message}`,
+        },
       ],
       150
     );
+
+    conversationHistory[username].push({
+      role: "assistant",
+      content: response.choices[0].message.content,
+    });
 
     res.json(response.choices[0].message.content);
   } catch (error: any) {

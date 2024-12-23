@@ -24,7 +24,7 @@ app.use(express.json());
 // Rate limiting middleware
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 30, // Limit each IP to 30 requests per minute
+  max: 10, // Limit each IP to 30 requests per minute
   message: "Too many requests from this IP, please try again later.",
 });
 
@@ -39,7 +39,7 @@ app.use(
 
 // Root endpoint
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to the SophonServerAPI!" });
+  res.status(200).json({ message: "Welcome to the Sophon AI ServerAPI!" });
 });
 
 // Register conversation routes
