@@ -24,7 +24,7 @@ app.use(express.json());
 // Rate limiting middleware
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 3, // Limit each IP to 30 requests per minute
+  max: 6, // Limit each IP to 30 requests per minute
   message: "Too many requests from this IP, please try again later.",
 });
 

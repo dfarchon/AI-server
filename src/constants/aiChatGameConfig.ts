@@ -3,9 +3,9 @@ export const AIChatGameConfig = `
   "PlanetStatus": ["DEFAULT", "DESTROYED"],
   "PlanetType": {
     "PLANET": "Generates energy; upgradable.",
-    "ASTEROID_FIELD": "Generates energy and silver; not upgradable.",
+    "ASTEROID_FIELD": "Generates energy and silver; not upgradable; best to explore.",
     "FOUNDRY": "Generates energy, prospect and finds artifacts; not upgradable.",
-    "SPACETIME_RIP": "Generates energy, stakes artifacts, burns silver; not upgradable.",
+    "SPACETIME_RIP": "Generates energy, stakes artifacts, burns silver; not upgradable; best to explore.",
     "QUASAR": "Longest range, no generation; not upgradable."
   },
   "SpaceType": {
@@ -88,8 +88,9 @@ export const AIChatGameConfig = `
     { "action": "SelectPlanet", "hint": "Click to view details like energy, silver, and level." },
     { "action": "ActivateArtifacts", "hint": "Choose artifact and activate. Ensure cooldowns are complete." },
     { "action": "FastExplore", "hint": "Use SpaceTime Rips and Asteroid Fields for rapid movement. Seek range and energy recharge boosts." },
-    { "action": "UseHotkeys", "hint": "Refer to Hotkeys bar or press 'h' for help." }
+    { "action": "UseHotkeys", "hint": "Refer to Hotkeys bar or press 'h' for help." },
+    { "roundSpecific": "New Dark Forest Comunnity Round start on 29.12.2024 ~one week long within Artifacts and Guild system via MUD Framework for Universe DARK FOREST MUD v2 on dfmud.xyz!" }
   ]
 }
-
+  
 `;
