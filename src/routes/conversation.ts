@@ -56,16 +56,16 @@ router.post("/start", async (req: Request, res: Response) => {
   conversationHistory[username] = [];
   console.log("POST START:", username, " | msg:", message);
   try {
-    // if (
-    //   !username ||
-    //   typeof username !== "string" ||
-    //   !message ||
-    //   typeof message !== "string" // ||
-    //   // !indexedHistory ||
-    //   // typeof indexedHistory !== "string"
-    // ) {
-    //   return;
-    // }
+    if (
+      !username ||
+      typeof username !== "string" ||
+      !message ||
+      typeof message !== "string" // ||
+      // !indexedHistory ||
+      // typeof indexedHistory !== "string"
+    ) {
+      return;
+    }
 
     console.log(
       "start: ",
