@@ -21,7 +21,7 @@ const conversationHistory: Record<string, any[]> = {};
 const filter = new Filter({ placeHolder: "" });
 // Function to sanitize input
 const cleanMessage = (message: string): string => filter.clean(message);
-
+console.log("OpeningAI call OPEN");
 // Helper to call OpenAI API
 async function callOpenAI(
   messages: any[],
@@ -41,6 +41,7 @@ async function callOpenAI(
   });
 
   const data = (await response.json()) as OpenAIResponse;
+  console.log("Opened AI call OPEN", data);
   if (!response.ok) {
     throw new Error(data.error?.message || "Failed to fetch from OpenAI.");
   }
@@ -52,7 +53,7 @@ router.post("/start", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
   // temporary delete old history api/conversation/start is used only once
   conversationHistory[username] = [];
-
+  console.log("POST START:");
   try {
     if (
       !username ||
@@ -111,6 +112,7 @@ router.post("/start", async (req: Request, res: Response) => {
 // Continue a conversation
 router.post("/step", async (req: Request, res: Response) => {
   const { username, message } = req.body;
+  console.log("POST STEP:");
 
   if (
     !username ||
