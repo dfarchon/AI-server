@@ -41,7 +41,7 @@ async function callOpenAI(
   });
 
   const data = (await response.json()) as OpenAIResponse;
-  console.log("Opened AI call OPEN", data);
+  console.log("Opened AI call OPEN");
   if (!response.ok) {
     throw new Error(data.error?.message || "Failed to fetch from OpenAI.");
   }
@@ -53,7 +53,7 @@ router.post("/start", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
   // temporary delete old history api/conversation/start is used only once
   conversationHistory[username] = [];
-  console.log("POST START:");
+  console.log("POST START:", username, " | msg:", message);
   try {
     if (
       !username ||
@@ -112,8 +112,7 @@ router.post("/start", async (req: Request, res: Response) => {
 // Continue a conversation
 router.post("/step", async (req: Request, res: Response) => {
   const { username, message } = req.body;
-  console.log("POST STEP:");
-
+  console.log("POST STEP:", username, " | msg:", message);
   if (
     !username ||
     typeof username !== "string" ||
