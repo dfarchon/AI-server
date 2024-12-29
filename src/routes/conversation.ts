@@ -104,7 +104,6 @@ router.post("/start", async (req: Request, res: Response) => {
       response.choices[0].message.content
     );
     res.json(response.choices[0].message.content);
-    console.log("Result", res);
   } catch (error: any) {
     console.error("Error starting conversation:", error);
     res.status(500).json({ error: error.message });
