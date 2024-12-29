@@ -51,16 +51,11 @@ async function callOpenAI(
 // Start a conversation init character and user name
 router.post("/start", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
-  console.log("req", req);
+  console.log("req", req.body);
 
   // temporary delete old history api/conversation/start is used only once
   conversationHistory[username] = [];
-  console.log(
-    "POST START:",
-    username.toString(),
-    " | msg:",
-    message.toString()
-  );
+  console.log("POST START:", username, " | msg:", message);
   try {
     // if (
     //   !username ||
