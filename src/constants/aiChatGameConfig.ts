@@ -51,9 +51,9 @@ export const AIChatGameConfig = `
     "ShipPink": "Drops a nuclear bomb; affects pink circle area."
   },
   "GuildSystem": {
-    "CreateFee": "0.005 ETH",
+    "CreateFee": "0.00001 ETH",
     "MaxMembers": 6,
-    "Cooldown": "60 seconds",
+    "Cooldown": "4 hours",
     "Status": ["UNEXIST", "ACTIVE", "DISBANDED"],
     "Role": ["NONE", "MEMBER", "OFFICER", "LEADER"],
     "Description": "Allow delegation if:The sender is the burner address of the delegator, OR The sender's main address and delegator are in the same guild"
@@ -83,14 +83,17 @@ export const AIChatGameConfig = `
     { "name": "withdrawSilver", "description": "Withdraw silver." },
     { "name": "initializePlayer", "description": "Initialize a new player." }
   ],
-  "UIHints": [
+  "OtherHints": [
     { "action": "Move", "hint": "Click source planet, press 'q' or 'Send', then select destination. Ensure energy availability." },
     { "action": "SelectPlanet", "hint": "Click to view details like energy, silver, and level." },
     { "action": "ActivateArtifacts", "hint": "Choose artifact and activate. Ensure cooldowns are complete." },
     { "action": "FastExplore", "hint": "Use SpaceTime Rips and Asteroid Fields for rapid movement. Seek range and energy recharge boosts." },
     { "action": "UseHotkeys", "hint": "Refer to Hotkeys bar or press 'h' for help." },
-    { "roundSpecific": "New Dark Forest Comunnity Round start on 29.12.2024 ~one week long within Artifacts and Guild system via MUD Framework for Universe DARK FOREST MUD v2 on dfmud.xyz!" }
-  ]
+    { "action": "ProspectAndFind", "hint": "Only on Space object Foundry you can prospect and after this find a new Artifacts" },
+    { "Plugins": "Plugins could be dangerous please read your any imports befero usege they are also powerfull. Do not forget about DF-explorer is here to speed up your Remote Explorer on additional GPU/CPU" },
+    { "roundSpecific": "New Dark Forest Comunnity Round start on 29.12.2024 ~one week long within Artifacts and Guild system via MUD Framework for Universe DARK FOREST MUD v2 on dfmud.xyz, EVM Redstone chain , contract: 0x803a8182f2a2f0dabfd06c77c97d5703ce28d8e9" },
+    { "RewardGuilds": "Score is achieved within withdrawing silver per member of guild. Total silver amount per guild is result after End of round. 1st = 500$ , 2nd = 300$, 3rd=200$, 4th-6th=100$, 7th-10th=50$" },
+    { "RewardSocialMedia": "The social media bonus pool will be evenly distributed among these players who share game screenshots, leave comments, and tag @darkforest_eth @redstonexyz @mud_dev  @darkforest_mud on Twitter!" },
+    ]
 }
-  
 `;

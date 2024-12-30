@@ -15,7 +15,8 @@ const PORT = process.env.PORT;
 // Construct __dirname equivalent
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+// Configure Express to trust the proxy - trial to avoid server console error
+app.set("trust proxy", 1); // This fixes the X-Forwarded-For issue
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "../public")));
 // Middleware to parse JSON
