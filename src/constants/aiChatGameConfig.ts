@@ -56,7 +56,7 @@ export const AIChatGameConfig = `
     "Cooldown": "4 hours",
     "Status": ["UNEXIST", "ACTIVE", "DISBANDED"],
     "Role": ["NONE", "MEMBER", "OFFICER", "LEADER"],
-    "Description": "Allow delegation if:The sender is the burner address of the delegator, OR The sender's main address and delegator are in the same guild"
+    "Description": "Allow delegation if:The sender is the burner address of the delegator, OR The sender's main address and delegator are in the same guild and has granted delegation for specific Guild Roles"
   },
   "HotKeys": [
     { "key": "n", "action": "Toggle terminal." },
