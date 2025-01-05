@@ -26,6 +26,13 @@ out/
 # TypeScript
 *.tsbuildinfo
 
+#MUD config files
+codegen/
+namespaces/
+remote/
+mud.config.ts
+
+public/
 
 # Git files
 .git/

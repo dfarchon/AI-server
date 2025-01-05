@@ -1,0 +1,439 @@
+[
+  {
+    "type": "function",
+    "name": "_msgSender",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "sender",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "_msgValue",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "value",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "_world",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "buyGPTTokens",
+    "inputs": [
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "creditPrice",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "sendGPTTokens",
+    "inputs": [
+      {
+        "name": "player",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "spendGPTTokens",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "supportsInterface",
+    "inputs": [
+      {
+        "name": "interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "event",
+    "name": "Store_SpliceStaticData",
+    "inputs": [
+      {
+        "name": "tableId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "ResourceId"
+      },
+      {
+        "name": "keyTuple",
+        "type": "bytes32[]",
+        "indexed": false,
+        "internalType": "bytes32[]"
+      },
+      {
+        "name": "start",
+        "type": "uint48",
+        "indexed": false,
+        "internalType": "uint48"
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "TokensSpent",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "AlreadyRegistered",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "AlreadyRegisteredAsBurner",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "AlreadySpawned",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ArtifactLevelTooLow",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ArtifactNotAvailable",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ArtifactNotChargeable",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ArtifactNotOnPlanet",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ArtifactOnCooldown",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ArtifactStorageFull",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "BurnerAlreadyTaken",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ExistingArtifact",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InsufficientSilverOnPlanet",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidBiomebaseProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidMoveProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPlanetHash",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPlanetType",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProofInput",
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "InvalidProspectTarget",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRevealProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSpawnPlanet",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSpawnProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidUpgradeTarget",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "MoveToSamePlanet",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NameAlreadyTaken",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotArtifactOwner",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughETH",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughGPTTokens",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughPopulation",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughPopulationToReach",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughResourceToActivate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughSilver",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotEnoughSilverToUpgrade",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotPaused",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotPlanetOwner",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotRegistered",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "OnlyCallableByArtifactInstallModule",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Paused",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlanetAlreadyExplored",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlanetAlreadyProspected",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlanetNotAvailable",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlanetNotInitialized",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlanetNotProspected",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlayerLimitReached",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ReachMaxMoveToLimit",
+    "inputs": [
+      {
+        "name": "limit",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "RevealTooOften",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Slice_OutOfBounds",
+    "inputs": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "start",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "end",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "UnknownPlanetType",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "UnkonwnArtifactType",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "UpgradeExceedMaxLevel",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "WithdrawAmountTooLow",
+    "inputs": []
+  }
+]
