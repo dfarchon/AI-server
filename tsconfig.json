@@ -1,14 +1,18 @@
 {
-    "compilerOptions": {
-      "module": "ESNext",
-      "target": "ES2020",
-      "moduleResolution": "Node",
-      "esModuleInterop": true,
-      "outDir": "./dist",
-      "rootDir": "./src",
-      "strict": true,
-      "typeRoots": ["./node_modules/@types", "./types"]
-    },
-    "include": ["src"],
-    "exclude": ["node_modules", "dist"]
-  }
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "outDir": "./dist",       // Output directory for compiled JavaScript
+    "rootDir": "./src",       // Root directory for source TypeScript files
+    "strict": true,
+    "typeRoots": ["./node_modules/@types", "./types"], // Type declarations
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true, // Allows importing JSON files
+    "declaration": true,       // Generates .d.ts files
+    "sourceMap": true          // Includes source maps for debugging
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

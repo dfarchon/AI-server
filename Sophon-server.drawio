@@ -1,50 +1,188 @@
 <mxfile host="65bd71144e">
-    <diagram id="I_Nh945jFZqHrDU1lVzi" name="Page-1">
-        <mxGraphModel dx="1114" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <diagram id="I_Nh945jFZqHrDU1lVzi" name="Overview">
+        <mxGraphModel dx="1266" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="11" value="ai-api.dfmud.xyz" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="1" vertex="1">
-                    <mxGeometry x="190" y="270" width="250" height="80" as="geometry"/>
-                </mxCell>
                 <mxCell id="14" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="70" y="410" width="150" height="420" as="geometry"/>
+                    <mxGeometry x="50" y="395" width="150" height="420" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="&lt;div style=&quot;background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;color: rgb(204, 204, 204); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #569cd6;&quot;&gt;const&lt;/span&gt; { &lt;span style=&quot;color: #4fc1ff;&quot;&gt;username&lt;/span&gt;, &lt;span style=&quot;color: #4fc1ff;&quot;&gt;message&lt;/span&gt; } &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;req&lt;/span&gt;.&lt;span style=&quot;color: #9cdcfe;&quot;&gt;body&lt;/span&gt;;&lt;/div&gt;&lt;font color=&quot;#ce9178&quot;&gt;&lt;br&gt;/start&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;for start conversion after first time open AI pane in gameClient&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;font color=&quot;#ce9178&quot;&gt;/step&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;for btn Send to continue as step for conversation&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="14" vertex="1">
+                <mxCell id="12" value="&lt;div style=&quot;background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;color: rgb(204, 204, 204); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #569cd6;&quot;&gt;const&lt;/span&gt; { &lt;span style=&quot;color: #4fc1ff;&quot;&gt;username&lt;/span&gt;, &lt;span style=&quot;color: #4fc1ff;&quot;&gt;message&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(204, 204, 204); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(79, 193, 255);&quot;&gt;indexedHistory&amp;nbsp;&lt;/span&gt;} &lt;span style=&quot;color: rgb(212, 212, 212);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(156, 220, 254);&quot;&gt;req&lt;/span&gt;.&lt;span style=&quot;color: rgb(156, 220, 254);&quot;&gt;body&lt;/span&gt;;&lt;/div&gt;&lt;font color=&quot;#ce9178&quot;&gt;&lt;br&gt;/start&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;to start conversion after first time it was open AI pane in gameClient and no indexedDB records&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;font color=&quot;#ce9178&quot;&gt;/step&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#ffffff&quot;&gt;for btn Send to continue as step for conversation with history by server or if not present history by indexedDB&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="14" vertex="1">
                     <mxGeometry width="150" height="420" as="geometry"/>
                 </mxCell>
                 <mxCell id="13" value="POST" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="14" vertex="1">
                     <mxGeometry x="40" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="380" y="410" width="220" height="160" as="geometry"/>
+                <mxCell id="31" value="&lt;span style=&quot;font-size: 20px; font-weight: 400;&quot;&gt;ai-api.dfmud.xyz&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;startSize=40;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="290" width="500" height="550" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;/get_conversation/:userName&lt;/span&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="16" vertex="1">
+                <mxCell id="16" value="" style="group" parent="31" vertex="1" connectable="0">
+                    <mxGeometry x="230" y="105" width="220" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="group" parent="16" vertex="1" connectable="0">
                     <mxGeometry width="220" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="GET" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="16" vertex="1">
-                    <mxGeometry x="62.857142857142854" width="94.28571428571428" height="20" as="geometry"/>
+                <mxCell id="17" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;/get_conversation/:userName&lt;/span&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="32" vertex="1">
+                    <mxGeometry width="220" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="First time client open" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="740" y="270" width="170" height="170" as="geometry"/>
+                <mxCell id="18" value="GET" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="32" vertex="1">
+                    <mxGeometry x="62.85714285714283" y="10" width="94.28571428571428" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="/start" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="765" y="480" width="120" height="80" as="geometry"/>
+                <mxCell id="34" value="Question server internal function" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="290" width="530" height="550" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;create IndexeDB history on client side:&lt;br&gt;&lt;span style=&quot;color: rgb(23, 29, 30); font-family: system-ui, sans-serif; font-size: 15px; text-align: start; background-color: rgb(248, 253, 254);&quot;&gt;DarkForestChatDB&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="696.25" y="700" width="257.5" height="100" as="geometry"/>
+                <mxCell id="28" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Send btn&lt;/font&gt;&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;" parent="34" vertex="1">
+                    <mxGeometry x="333.75" y="60" width="170" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="Send btn" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="1060" y="280" width="170" height="170" as="geometry"/>
+                <mxCell id="29" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;/step&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" parent="34" vertex="1">
+                    <mxGeometry x="356.25" y="135" width="125" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="/start" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="1085" y="490" width="120" height="80" as="geometry"/>
+                <mxCell id="30" value="&lt;span style=&quot;font-size: 10px; background-color: rgb(42, 37, 47);&quot;&gt;check if server have a history &lt;br&gt;if not use indexedDB&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(31, 31, 31); color: rgb(204, 204, 204); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; color: rgb(79, 193, 255);&quot;&gt;conversationHistory&lt;/span&gt;&lt;span style=&quot;background-color: rgb(31, 31, 31); color: rgb(204, 204, 204); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px;&quot;&gt;[&lt;/span&gt;&lt;span style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; color: rgb(79, 193, 255);&quot;&gt;username&lt;/span&gt;&lt;span style=&quot;background-color: rgb(31, 31, 31); color: rgb(204, 204, 204); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px;&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" parent="34" vertex="1">
+                    <mxGeometry x="290" y="185" width="230" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;create IndexeDB history on client side:&lt;br&gt;&lt;span style=&quot;color: rgb(23, 29, 30); font-family: system-ui, sans-serif; font-size: 15px; text-align: start; background-color: rgb(248, 253, 254);&quot;&gt;DarkForestChatDB&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="1010" y="620" width="257.5" height="100" as="geometry"/>
+                <mxCell id="20" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;/start&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" parent="34" vertex="1">
+                    <mxGeometry x="66.25" y="135" width="125" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;create server history:&lt;br&gt;&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&amp;nbsp;&lt;span style=&quot;color: #4fc1ff;&quot;&gt;conversationHistory&lt;/span&gt;[&lt;span style=&quot;color: #4fc1ff;&quot;&gt;username&lt;/span&gt;]&lt;/div&gt;&lt;br&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
-                    <mxGeometry x="706.25" y="570" width="257.5" height="100" as="geometry"/>
+                <mxCell id="27" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;First time client open&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;" parent="34" vertex="1">
+                    <mxGeometry x="43.75" y="60" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;create server history:&lt;br&gt;&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&amp;nbsp;&lt;span style=&quot;color: #4fc1ff;&quot;&gt;conversationHistory&lt;/span&gt;[&lt;span style=&quot;color: #4fc1ff;&quot;&gt;username&lt;/span&gt;]&lt;/div&gt;&lt;br&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" parent="34" vertex="1">
+                    <mxGeometry x="10" y="185" width="257.5" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;create IndexeDB history on client side:&lt;br&gt;Q + A history&lt;br&gt;&lt;span style=&quot;color: rgb(23, 29, 30); font-family: system-ui, sans-serif; font-size: 15px; text-align: start; background-color: rgb(248, 253, 254);&quot;&gt;DarkForestChatDB&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FFFFFF;" parent="34" vertex="1">
+                    <mxGeometry x="10" y="275" width="257.5" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="QB_IUegbNMJRvbF7fwN2" name="Character">
+        <mxGraphModel dx="1284" dy="889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-1" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Character design &amp;amp; Question without bad words&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;startSize=60;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="50" width="540" height="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-2" value="aiBotCharacter.ts" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="170" y="210" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-3" value="Main prompt :" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="60" y="90" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-4" value="Context &amp;amp;&lt;br&gt;Rules" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="350" y="150" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-5" value="aiBookText.js" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="300" y="345" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-6" value="&lt;div style=&quot;color: rgb(204, 204, 204); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(240, 240, 240); font-family: &amp;quot;Architects Daughter&amp;quot;; font-size: 20px;&quot;&gt;aiChatGameconfig.ts&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="20" y="340" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-7" value="" style="shape=flexArrow;endArrow=classic;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="180" y="330" as="sourcePoint"/>
+                        <mxPoint x="230" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-8" value="" style="shape=flexArrow;endArrow=classic;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="370" y="330" as="sourcePoint"/>
+                        <mxPoint x="340" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-9" value="User question :" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="60" y="440" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-10" value="&lt;div style=&quot;color: rgb(204, 204, 204); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(197, 134, 192);&quot;&gt;import&lt;/span&gt; { &lt;span style=&quot;color: rgb(156, 220, 254);&quot;&gt;Filter&lt;/span&gt; } &lt;span style=&quot;color: rgb(197, 134, 192);&quot;&gt;from&lt;/span&gt; &lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;&quot;bad-words&quot;&lt;/span&gt;;&lt;/div&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="170" y="480" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvUNVlSniFu8_-1CGse0-11" value="bad words are as &lt;br&gt;*****" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="EvUNVlSniFu8_-1CGse0-1" vertex="1">
+                    <mxGeometry x="150" y="560" width="270" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-1" value="&lt;span style=&quot;font-size: 20px; font-weight: 400;&quot;&gt;aiChatGameconfig.ts&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=60;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="50" width="480" height="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-3" value="Hints for game play" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="xhGs89iNdzTaDhxaIZ-E-1" vertex="1">
+                    <mxGeometry x="70" y="220" width="270" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-4" value="Round rules and rewards desc.&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="xhGs89iNdzTaDhxaIZ-E-1" vertex="1">
+                    <mxGeometry x="70" y="560" width="270" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-5" value="Contract functions desciption" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="xhGs89iNdzTaDhxaIZ-E-1" vertex="1">
+                    <mxGeometry x="70" y="490" width="270" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-6" value="Hotkey description" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="xhGs89iNdzTaDhxaIZ-E-1" vertex="1">
+                    <mxGeometry x="80" y="420" width="270" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-7" value="Guild system description" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="xhGs89iNdzTaDhxaIZ-E-1" vertex="1">
+                    <mxGeometry x="80" y="350" width="270" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="xhGs89iNdzTaDhxaIZ-E-8" value="Artifacts description" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="xhGs89iNdzTaDhxaIZ-E-1" vertex="1">
+                    <mxGeometry x="70" y="290" width="270" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="gNHW_uNEcCCHQhTMy8h0-1" value="Game config - Biomes , Space objects , Lvls , Radius,&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" vertex="1" parent="xhGs89iNdzTaDhxaIZ-E-1">
+                    <mxGeometry x="30" y="130" width="390" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="-XhvLlsDGry5KzjnCuFx" name="Plan">
+        <mxGraphModel dx="1284" dy="889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="gXUqtkadsMHrKR7bT8Ls-5" value="Features plan" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=60;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="20" width="1090" height="770" as="geometry"/>
+                </mxCell>
+                <mxCell id="gXUqtkadsMHrKR7bT8Ls-6" value="Read current state of game -&amp;nbsp;&lt;br&gt;a) inside body for Server API calls?&amp;nbsp;&lt;br&gt;b) MUD_Cli on Server side directly reading game contract state?&amp;nbsp; &amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="gXUqtkadsMHrKR7bT8Ls-5" vertex="1">
+                    <mxGeometry x="100" y="90" width="620" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="ZLEHKtb--ev5Rk2zHs7H-1" value="Create Client CALLS API for AI server answers -&amp;gt; client as executor = player burner wallet is already initialized" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="gXUqtkadsMHrKR7bT8Ls-5" vertex="1">
+                    <mxGeometry x="110" y="220" width="570" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ZLEHKtb--ev5Rk2zHs7H-2" value="Client &amp;lt;&amp;gt; AI server API" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;" parent="gXUqtkadsMHrKR7bT8Ls-5" vertex="1">
+                    <mxGeometry x="100" y="390" width="600" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="ZLEHKtb--ev5Rk2zHs7H-3" value="split Questions and answers to user content and client content" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=16;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="ZLEHKtb--ev5Rk2zHs7H-2" vertex="1">
+                    <mxGeometry y="30" width="600" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="ZLEHKtb--ev5Rk2zHs7H-4" value="only user content to indexedDB chat history records" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=16;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="ZLEHKtb--ev5Rk2zHs7H-2" vertex="1">
+                    <mxGeometry y="60" width="600" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="ZLEHKtb--ev5Rk2zHs7H-7" value="client content hiden for user -&amp;gt; call(function name , args)&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=16;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="ZLEHKtb--ev5Rk2zHs7H-2" vertex="1">
+                    <mxGeometry y="90" width="600" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="T4612C0PbJwl8FilUOcV-1" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Client will filter answers and if &quot;call fc.name(args)&quot;&lt;br&gt;found, then will call it a burner wallet.&amp;nbsp; &amp;nbsp;&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" vertex="1" parent="gXUqtkadsMHrKR7bT8Ls-5">
+                    <mxGeometry x="680" y="210" width="350" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="hEMCnRPW6aDd1q1sFLk8" name="MUD Agent">
+        <mxGraphModel dx="514" dy="355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="fZ2A8K_cZwMeuRLsK3nR-2" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;How write call for MUD Main contract&amp;nbsp;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;startSize=50;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="60" width="430" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="ljPVsQdIzf35ZIZvixmF-1" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;how to give delegation to server?&amp;nbsp;&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="fZ2A8K_cZwMeuRLsK3nR-2" vertex="1">
+                    <mxGeometry x="60" y="70" width="300" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="ljPVsQdIzf35ZIZvixmF-2" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;create a simple api for server to client and only at client will create it txs?&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="fZ2A8K_cZwMeuRLsK3nR-2" vertex="1">
+                    <mxGeometry x="65" y="220" width="300" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="fZ2A8K_cZwMeuRLsK3nR-3" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;MUD - read current state&amp;nbsp;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;startSize=50;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="60" width="420" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="fZ2A8K_cZwMeuRLsK3nR-4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;MAIN contract address as part of game config&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="fZ2A8K_cZwMeuRLsK3nR-3" vertex="1">
+                    <mxGeometry x="40" y="70" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="fZ2A8K_cZwMeuRLsK3nR-5" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;read current contract state&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="fZ2A8K_cZwMeuRLsK3nR-3" vertex="1">
+                    <mxGeometry x="40" y="160" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="fZ2A8K_cZwMeuRLsK3nR-7" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;read current GameConfig state&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" parent="fZ2A8K_cZwMeuRLsK3nR-3" vertex="1">
+                    <mxGeometry x="40" y="250" width="320" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

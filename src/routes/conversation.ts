@@ -1,6 +1,6 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, Router } from "express";
 import fetch from "node-fetch";
-import { AI_BOT_CHARACTER } from "../constants/aiBotCharacter.js";
+import { AI_BOT_CHARACTER } from "../constants/conversation/aiBotCharacter.js";
 import { Filter } from "bad-words";
 // Define types for OpenAI API response
 interface OpenAIResponse {
@@ -8,12 +8,14 @@ interface OpenAIResponse {
   error?: { message: string };
 }
 
-const router = express.Router();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 if (!OPENAI_API_KEY) {
   throw new Error("Missing OpenAI API key in environment variables.");
 }
+
+const router: Router = express.Router();
+
 // In-memory conversation history
 const conversationHistory: Record<string, any[]> = {};
 
@@ -66,6 +68,9 @@ router.post("/start", async (req: Request, res: Response) => {
       // !indexedHistory ||
       // typeof indexedHistory !== "string"
     ) {
+      res.status(400).json({
+        error: "Invalid input. Provide a valid username and message.",
+      });
       return;
     }
 
@@ -126,6 +131,9 @@ router.post("/step", async (req: Request, res: Response) => {
     !message ||
     typeof message !== "string"
   ) {
+    res.status(400).json({
+      error: "Invalid input. Provide a valid username and message.",
+    });
     return;
   }
 
@@ -204,16 +212,27 @@ router.post("/step", async (req: Request, res: Response) => {
 // Route to get conversation by userName
 router.get("/get_conversation/:userName", (req: Request, res: Response) => {
   try {
-    const { userName } = req.params;
+    const { username } = req.params;
+
+    if (!username || typeof username !== "string") {
+      res.status(400).json({
+        error: "Invalid input. Provide a valid username and message.",
+      });
+      return;
+    }
 
     // Check if the userName exists in the conversation history
-    if (!conversationHistory[userName]) {
-      console.error("History not found for user:", userName);
+    if (!conversationHistory[username]) {
+      res.status(400).json({
+        error: "History not found for user:",
+        username,
+      });
+      console.error("History not found for user:", username);
       return;
     }
 
     // Return the conversation for the given userName
-    res.json({ conversation: conversationHistory[userName] });
+    res.json({ conversation: conversationHistory[username] });
   } catch (error: any) {
     console.error("Error retrieving conversation:", error);
     res.status(500).json({ error: "Error retrieving conversation:" });

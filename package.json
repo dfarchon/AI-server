@@ -1,18 +1,27 @@
 {
   "name": "sophon-server",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run build && node --env-file=.env dist/app.js",
+    "dev": "pnpm build && node --env-file=.env dist/app.js",
     "start": "node --env-file=.env dist/app.js",
-    "build": "tsc"
+    "build": "pnpm tsc",
+    "mud:pull": "cd mud/src && mud pull --worldAddress 0x803a8182f2a2f0dabfd06c77c97d5703ce28d8e9 --rpc https://rpc.redstonechain.com --replace"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "@latticexyz/cli": "^2.2.14",
+    "@latticexyz/common": "^2.2.14",
+    "@latticexyz/schema-type": "^2.2.14",
+    "@latticexyz/stash": "^2.2.14",
+    "@latticexyz/store": "^2.2.14",
+    "@latticexyz/store-sync": "^2.2.14",
+    "@latticexyz/world": "^2.2.14",
+    "@latticexyz/world-modules": "^2.2.14",
+    "axios": "^1.7.9",
     "bad-words": "^4.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -29,6 +38,13 @@
     "@types/node-fetch": "^2.6.12",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@types/node"
+      ]
+    }
   },
   "description": ""
 }
