@@ -1,90 +1,86 @@
-# Sophon Server
 
-Sophon Server is a backend application designed to securely handle AI interactions for the **Dark Forest** universe. It acts as a secure intermediary to process OpenAI API requests while maintaining data privacy and ensuring optimal performance.
+# Sophon AI Server
+The Sophon AI Server is a backend application designed to enhance the Dark Forest universe by integrating AI-driven interactions. It provides endpoints for engaging with Sophon, the AI assistant, to improve the gaming experience through strategic advice, answering questions, and executing game functions.
 
-## Features
+# Features
+**AI Chat Interface:** 
+Interact with Sophon to discuss strategies, lore, and game mechanics.
 
-- **Secure API Proxy**: Interacts with OpenAI securely via a hidden API key.
-- **Dynamic Conversations**: Manages user conversations with AI using game-specific context.
-- **Optimized Token Cost**: Implements strategies to minimize token usage while providing engaging responses.
-- **Dark Forest Integration**: Built to support game-specific strategies, rules, and lore.
+**Agent Command Execution:**
+Send commands to the AI agent to execute game-related functions.
 
----
+# Prerequisites
+Node.js: Ensure Node.js is installed on your system.
+OpenAI API Key: Obtain an API key from OpenAI and set it as an environment variable.
 
-## Project Structure
+# Installation
+Clone the Repository
 
-```plaintext
-sophon-server/
-├── src/
-│   ├── app.ts                 # Main application entry point
-│   ├── routes/
-│   │   ├── conversation.ts    # Routes for managing AI conversations
-│   │   └── utils.ts           # Utility functions for token cost and validations
-│   └── constants/
-│       ├── aiChatGameConfig.ts # Game-specific configurations for AI
-│       ├── aiBookText.ts       # Game lore and text constants
-│       └── aiBotCharacter.ts   # Character-specific prompts
-├── .env                       # Environment variables
-├── .gitignore                 # Git ignore rules
-├── package.json               # Node.js dependencies
-├── tsconfig.json              # TypeScript configuration
-└── README.md                  # Project documentation
-```
+git clone https://github.com/dfarchon/AI-server.git 
 
-Getting Started
-Prerequisites
-Node.js v16 or higher
-TypeScript
+cd AI-server 
 
-npm, yarn, or pnpm (choose your preferred package manager)
-Installation
+pnpm install
 
-Clone the repository:
-git clone https://github.com/your-username/sophon-server.git
-cd sophon-server
 
-Install dependencies:
-npm install
-Set up environment variables: Create a .env file in the root directory and configure it with the following:
+Set Environment Variables -> Create a .env file in the root directory and include init values
 
-Development Mode:
-npm run dev
+Start the Server ->
 
-Production Build:
-npm run build
-npm start
+pnpm dev
 
-Development
-Scripts
-npm run dev: Starts the development server with live reload.
-npm run build: Compiles the TypeScript code into JavaScript.
-npm start: Runs the production build.
-Linting
-Run ESLint to check for code issues:
+The server will run on http://localhost:8080.
 
-bash
-npm run lint
-Contributing
-Contributions are welcome! Please follow the steps below:
+# API Endpoints:
+**POST /api/conversation/start**
 
+Description: Starts a new conversation with the AI assistant.
+
+Request Payload:
+json
+{
+  "username": "playerName",
+  "message": "Hello!"
+}
+
+**POST /api/conversation/step**
+
+Description: Sends a step message to the AI assistant and receives a response.
+
+Request Payload:
+json
+{
+  "username": "playerName",
+  "message": "Your question or input here"
+}
+
+**POST /api/agent**
+
+Description: Sends a command to the AI agent for execution.
+
+Request Payload:
+json
+{
+  "username": "playerName",
+  "message": "Move from locationId to locationId with xyz forces and xzy silver"
+}
+
+# Usage:
+Send HTTP POST requests to the appropriate endpoints using tools like curl, Postman, or a frontend application.
+Example Request Using curl:
+
+curl -X POST http://localhost:8080/api/conversation/start \
+-H "Content-Type: application/json" \
+-d '{ "username": "playerName", "message": "Hello!" }'
+
+# To contribute:
+Contributions are welcome! 
 Fork the repository.
-Create a feature branch: git checkout -b feature-name.
-Commit your changes: git commit -m "Add feature-name".
-Push to the branch: git push origin feature-name.
-Open a pull request.
-License
-This project is licensed under the MIT License.
+Create a feature branch.
+Submit a pull request with your changes.
 
-Acknowledgements
-OpenAI for the GPT-3.5 model.
-Dark Forest Community for inspiring this project.
-Node.js and TypeScript for enabling robust development.
+# License
+This project is licensed under the MIT License and created by 9STX6.
 
-### Key Features of the `README.md`:
-
-1. **Overview**: A brief description of the project.
-2. **Project Structure**: Explains the directory structure for easy navigation.
-3. **Getting Started**: Step-by-step setup instructions.
-4. **API Documentation**: Details the endpoints for integration.
-5. **Development and Contribution**: Instructions for developers.
-6. **Acknowledgements**: Gives credit where due.
+# Acknowledgments
+Special thanks to the Dark Forest community for their support and collaboration.
