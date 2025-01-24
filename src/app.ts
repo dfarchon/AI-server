@@ -36,7 +36,7 @@ app.use(limiter); // Apply to all routes
 app.use(helmet()); // Secure app with Helmet
 app.use(
   cors({
-    origin: [process.env.ORIGIN_WEB_CLIENT || "http://localhost:3000"], // Replace with your frontend URL
+    origin: process.env.ORIGIN_WEB_CLIENT, // Replace with your frontend URL
     methods: ["GET", "POST"],
   })
 );

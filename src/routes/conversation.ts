@@ -152,11 +152,12 @@ router.post("/step", async (req: Request, res: Response) => {
         },
       ];
 
-      conversationHistory[username] = initHistory;
       console.log("created initial history for assistant and user:", username);
+
+      conversationHistory[username] = [...initHistory];
     } else {
-      conversationHistory[username] = indexedHistory;
       console.log("created indexed history for assistant and user:", username);
+      conversationHistory[username] = [...indexedHistory];
     }
   }
 

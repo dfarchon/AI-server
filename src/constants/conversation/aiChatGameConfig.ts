@@ -2,14 +2,14 @@ export const AIChatGameConfig = `
 {
   "PlanetStatus": ["DEFAULT", "DESTROYED"],
   "PlanetType": {
-    "PLANET": "Generates energy; upgradable.",
-    "ASTEROID_FIELD": "Generates energy and silver; not upgradable; best to explore.",
-    "FOUNDRY": "Generates energy, prospect and finds artifacts; not upgradable.",
-    "SPACETIME_RIP": "Generates energy, stakes artifacts, burns silver; not upgradable; best to explore.",
-    "QUASAR": "Longest range, no generation; not upgradable."
+    "PLANET": "Generates energy; upgradable; planet.planetType = 1",
+    "ASTEROID_FIELD": "Generates energy and silver; not upgradable; best to explore; planet.planetType = 2",
+    "FOUNDRY": "Generates energy, prospect and finds artifacts; not upgradable; planet.planetType = 3",
+    "SPACETIME_RIP": "Generates energy, stakes artifacts, burns silver; not upgradable; best to explore; planet.planetType = 4.",
+    "QUASAR": "Longest range, no generation; not upgradable; planet.planetType = 5."
   },
   "SpaceType": {
-    "NEBULA": "Max level 4; upgrades: 3.",
+    "NEBULA": "Max level 4; upgrades: 3",
     "SPACE": "Max level 5; upgrades: 4.",
     "DEEP_SPACE": "Max level 9; upgrades: 5.",
     "DEAD_SPACE": "Corrupted biomes only; max level 9; upgrades: 5."
@@ -30,19 +30,12 @@ export const AIChatGameConfig = `
     "SILVER_GROWTH": "Faster silver production (Asteroids only)."
   },
   "GameRadius": 150000,
-  "PlanetLevel": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9 },
+  "PlanetLevel": { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
   "ArtifactTypes": {
     "BloomFilter": "Refills planet energy.",
     "Wormhole": "Portal between two planets; Nearly instant travel light speed limits.",
     "PhotoidCannon": "Fires a beam at a planet; reduces defense while charging. Fast nearly as light speed.",
-    "PlanetaryShield": "Defends against BlackDomain.",
-    "BlackDomain": "Targets planets of equal/higher level; countered by PlanetaryShield.",
-    "IceLink": "Connects to planets with FireLink.",
-    "FireLink": "Cancels IceLink; disappears after activation.",
-    "Kardashev": "Used for Kardashev operations; reusable.",
     "Bomb": "Drops a bomb creating a pink circle; consumed on use.",
-    "StellarShield": "Resists attacks and prevents pink destruction.",
-    "Avatar": "Custom planet avatars.",
   },
   "GuildSystem": {
     "CreateFee": "0.00001 ETH",
