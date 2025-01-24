@@ -1,6 +1,5 @@
 import express, { Request, Response, Router } from "express";
 import fetch from "node-fetch"; // Ensure node-fetch is installed
-import OpenAI from "openai";
 
 import { predictTokenCost } from "./utils.js";
 
