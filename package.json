@@ -28,7 +28,9 @@
     "express": "^4.21.2",
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
+    "https-proxy-agent": "^7.0.6",
     "node-fetch": "^3.3.2",
+    "openai": "^4.82.0",
     "winston": "^3.17.0"
   },
   "devDependencies": {

@@ -1,18 +1,16 @@
 import express, { Request, Response, Router } from "express";
-import fetch from "node-fetch";
-import { AI_BOT_CHARACTER } from "../constants/conversation/aiBotCharacter.js";
+import OpenAI from "openai";
 import { Filter } from "bad-words";
-// Define types for OpenAI API response
-interface OpenAIResponse {
-  choices: { message: { role: string; content: string } }[];
-  error?: { message: string };
-}
+import { AI_BOT_CHARACTER } from "../constants/conversation/aiBotCharacter.js";
+import { HttpsProxyAgent } from "https-proxy-agent";
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-
-if (!OPENAI_API_KEY) {
-  throw new Error("Missing OpenAI API key in environment variables.");
-}
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  httpAgent: new HttpsProxyAgent('http://127.0.0.1:7890'),
+  timeout: 60000,
+  maxRetries: 3,
+});
 
 const router: Router = express.Router();
 
@@ -24,49 +22,36 @@ const filter = new Filter({ placeHolder: "" });
 // Function to sanitize input
 const cleanMessage = (message: string): string => filter.clean(message);
 
-// MAIN Helper function to call OpenAI API
-// model LLM type
-// respond as output
-async function callOpenAI(
-  messages: any[],
-  max_tokens: number
-): Promise<OpenAIResponse> {
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+// Main helper function to call OpenAI API
+async function callOpenAI(messages: any[], max_tokens: number) {
+  try {
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4",
       messages,
       max_tokens,
-    }),
-  });
+      temperature: 0.7,
+    });
 
-  const data = (await response.json()) as OpenAIResponse;
-  //console.log("AI responded");
-  if (!response.ok) {
-    throw new Error(data.error?.message || "Failed to fetch from OpenAI.");
+    return completion;
+  } catch (error: any) {
+    console.error("OpenAI API error:", error);
+    throw error;
   }
-  return data;
 }
 
-// Start a conversation init character and user name
+// Start a conversation with character initialization and username
 router.post("/start", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
 
-  // temporary delete old history api/conversation/start is used only once
+  // Temporary delete old history - api/conversation/start is used only once
   conversationHistory[username] = [];
-  // console.log("POST START:", username, " | msg:", message);
+
   try {
     if (
       !username ||
       typeof username !== "string" ||
       !message ||
-      typeof message !== "string" // ||
-      // !indexedHistory ||
-      // typeof indexedHistory !== "string"
+      typeof message !== "string"
     ) {
       res.status(400).json({
         error: "Invalid input. Provide a valid username and message.",
@@ -82,6 +67,7 @@ router.post("/start", async (req: Request, res: Response) => {
       "cleaned:",
       cleanMessage(message)
     );
+
     const initialPrompt = [
       {
         role: "system",
@@ -94,37 +80,34 @@ router.post("/start", async (req: Request, res: Response) => {
         )}`,
       },
     ];
-    // call AI with  initalPrompt and max respond tokens arguments
-    const response = await callOpenAI(initialPrompt, 150);
 
-    // Append AI response and user msg Hello! push to the history
+    const completion = await callOpenAI(initialPrompt, 150);
+    const aiResponse = completion.choices[0].message.content;
+
+    // Append AI response and user message to the history
     conversationHistory[username].push(
       {
         role: "assistant",
-        content: response.choices[0].message.content,
+        content: aiResponse,
       },
       {
         role: "user",
         content: `${cleanMessage(message)}`,
       }
     );
-    console.log(
-      "assistant start user:",
-      username,
-      "-",
-      response.choices[0].message.content
-    );
-    res.json(response.choices[0].message.content);
+
+    console.log("assistant start user:", username, "-", aiResponse);
+    res.json(aiResponse);
   } catch (error: any) {
     console.error("Error starting conversation:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
-// Continue a conversation STEP
+// Continue conversation STEP
 router.post("/step", async (req: Request, res: Response) => {
   const { username, message, indexedHistory } = req.body;
-  // console.log("POST STEP:", username, " | msg:", message);
+
   if (
     !username ||
     typeof username !== "string" ||
@@ -138,8 +121,7 @@ router.post("/step", async (req: Request, res: Response) => {
   }
 
   if (!conversationHistory[username]) {
-    console.log("history not found by Sophon-server for user:", username);
-    // Init AI response and user msg Hello! push to the history if no history on server
+    console.log("History not found by Sophon-server for user:", username);
     if (!indexedHistory) {
       const initHistory = [
         {
@@ -151,12 +133,8 @@ router.post("/step", async (req: Request, res: Response) => {
           content: `input: Hello!`,
         },
       ];
-
-      console.log("created initial history for assistant and user:", username);
-
       conversationHistory[username] = [...initHistory];
     } else {
-      console.log("created indexed history for assistant and user:", username);
       conversationHistory[username] = [...indexedHistory];
     }
   }
@@ -170,26 +148,27 @@ router.post("/step", async (req: Request, res: Response) => {
       "cleaned:",
       cleanMessage(message)
     );
-    const response = await callOpenAI(
+
+    const completion = await callOpenAI(
       [
         {
           role: "system",
-          content: `You countinue be Sophon , ${AI_BOT_CHARACTER.chatPrompt} , with conversation history for user: ${username}`,
+          content: `You continue be Sophon, ${AI_BOT_CHARACTER.chatPrompt}, with conversation history for user: ${username}`,
         },
         {
           role: "user",
-          content: `conversationHistory: ${
-            conversationHistory[username]
-          } , input: ${cleanMessage(message)}`,
+          content: `conversationHistory: ${conversationHistory[username]}, input: ${cleanMessage(message)}`,
         },
       ],
       150
     );
 
+    const aiResponse = completion.choices[0].message.content;
+
     conversationHistory[username].push(
       {
         role: "assistant",
-        content: response.choices[0].message.content,
+        content: aiResponse,
       },
       {
         role: "user",
@@ -197,19 +176,14 @@ router.post("/step", async (req: Request, res: Response) => {
       }
     );
 
-    console.log(
-      "assistant step user:",
-      username,
-      "-",
-      response.choices[0].message.content
-    );
-
-    res.json(response.choices[0].message.content);
+    console.log("assistant step user:", username, "-", aiResponse);
+    res.json(aiResponse);
   } catch (error: any) {
     console.error("Error continuing conversation:", error);
     res.status(500).json({ error: error.message });
   }
 });
+
 // Route to get conversation by userName
 router.get("/get_conversation/:userName", (req: Request, res: Response) => {
   try {
@@ -222,7 +196,6 @@ router.get("/get_conversation/:userName", (req: Request, res: Response) => {
       return;
     }
 
-    // Check if the userName exists in the conversation history
     if (!conversationHistory[username]) {
       res.status(400).json({
         error: "History not found for user:",
@@ -232,7 +205,6 @@ router.get("/get_conversation/:userName", (req: Request, res: Response) => {
       return;
     }
 
-    // Return the conversation for the given userName
     res.json({ conversation: conversationHistory[username] });
   } catch (error: any) {
     console.error("Error retrieving conversation:", error);
