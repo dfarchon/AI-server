@@ -52,8 +52,8 @@ Development Mode:
 pnpm dev
 
 Production Build:
-npm build
-npm start
+pnpm build
+pnpm start
 
 Development
 Scripts
