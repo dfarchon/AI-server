@@ -33,10 +33,11 @@ sophon-server/
 
 Getting Started
 Prerequisites
-Node.js v16 or higher
+Own OpenAI gpt PK Key
+Node.js v22 or higher
 TypeScript
 
-npm, yarn, or pnpm (choose your preferred package manager)
+ pnpm 
 Installation
 
 Clone the repository:
@@ -44,26 +45,22 @@ git clone https://github.com/your-username/sophon-server.git
 cd sophon-server
 
 Install dependencies:
-npm install
+pnpm install
 Set up environment variables: Create a .env file in the root directory and configure it with the following:
 
 Development Mode:
-npm run dev
+pnpm dev
 
 Production Build:
-npm run build
+npm build
 npm start
 
 Development
 Scripts
-npm run dev: Starts the development server with live reload.
-npm run build: Compiles the TypeScript code into JavaScript.
-npm start: Runs the production build.
-Linting
-Run ESLint to check for code issues:
+pnpm dev: Starts the development server with live reload.
+pnpm build: Compiles the TypeScript code into JavaScript.
+pnpm start: Runs the production build.
 
-bash
-npm run lint
 Contributing
 Contributions are welcome! Please follow the steps below:
 
