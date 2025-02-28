@@ -33,9 +33,9 @@ async function callOpenAI(
       Authorization: `Bearer ${OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+      model: "ft:gpt-3.5-turbo-0125:personal:df-mud:B3l5nuuz",
       messages,
-      max_completion_tokens,
+      max_tokens,
       temperature,
     }),
   });
@@ -107,7 +107,7 @@ router.post("/agent", async (req: Request, res: Response) => {
     console.log("selectedPlanets:", selectedPlanets);
     console.log("msg:", message);
 
-    const prompt = `
+    const promptOld = `
     You are Sophon, an AI agent assisting in the Dark Forest game using PlayerFunctions for the Dark Forest MUD. Your goal is to analyze the player's selectedPlanets, generate commands, and maintain strict adherence to the game's mechanics, functions, and data formats.
     
     ---
@@ -196,7 +196,7 @@ router.post("/agent", async (req: Request, res: Response) => {
       - **Arguments:**
         - \`from\`: \`LocationId\` (Source planet's locationId)
         - \`to\`: \`LocationId\` (Destination planet's locationId)
-        - \`forces\`: \`number\` (MUST BE Energy for the move, calculate value as result from \`getEnergyNeededForMove\` and add some overflow energy. You can use min 5% and max 99% fromId.energy, never put 0)
+        - \`forces\`: \`number\` (MUST BE enough Energy for any move, calculate value as result from \`getEnergyNeededForMove\` and add some overflow energy. You can use min 5% and max 99% fromId.energy, never put 0)
         - \`silver\`: \`number\` (Amount of silver to transfer; default is 0 if not specified; you can use only 0-99% of fromId.silver)
         - \`artifactMoved\`: \`ArtifactId\` (Optional; defaults to \`null\`)
         - \`abandoning\`: \`boolean\` (Default: \`false\`)
@@ -305,6 +305,45 @@ router.post("/agent", async (req: Request, res: Response) => {
     ---
     
     Follow these instructions precisely to generate consistent and actionable commands 3 times check your response.
+    `;
+
+    const prompt = `
+    ### Selected Planets
+    prediction.Content:
+    You can only control planets owned by the player (\`planet.owner = ${ownerAddress}\`). The \`selectedPlanets = ${selectedPlanets}\` are structured as follows:
+    - \`planet.locationId\`: Unique planet identifier.
+    - \`planet.name\`: Name of the planet.
+    - \`planet.isHomePlanet\`: Whether the planet is a home planet (true/false).
+    - \`planet.owner\`: Planet owner (use "0x0" for "0x0000000000000000000000000000000000000000").
+    - \`planet.ownerName\`: Owner's name.
+    - \`planet.spaceType\`: Type of space (e.g., NEBULA, SPACE, DEEP_SPACE).
+    - \`planet.planetType\`: Planet type (e.g., PLANET, ASTEROID_FIELD).
+    - \`planet.planetLevel\`: Planet level.
+    - \`planet.universeZone\`: Universe zone.
+    - \`planet.distSquare\`: Distance from center.
+    - \`planet.range\`: Planet range.
+    - \`planet.speed\`: Speed of movement from the planet.
+    - \`planet.defense\`: Defense of the planet.
+    - \`planet.energy\`: Current energy of the planet.
+    - \`planet.energyCap\`: Maximum energy capacity.
+    - \`planet.energyGrowth\`: Grow energy per 1 second.
+    - \`planet.silver\`: Current silver held.
+    - \`planet.silverCap\`: Maximum silver capacity.
+    - \`planet.silverGrowth\`: Grow silver per 1 second.
+    - \`planet.upgradeState\`: The upgrade state.
+    - \`planet.coordsRevealed\`: Coords are revealed on worldmap.
+    - \`planet.bonus\`: Planet bonus map from upgrades.
+    - \`planet.energyGroDoublers\`: Planet bonus energy Growth Doublers. 
+    - \`planet.silverGroDoublers\`: Planet bonus silver Growth Doublers. 
+    - \`planet.hasTriedFindingArtifact\`: Artifact is was started to prospect. 
+    - \`planet.heldArtifactIds\`:  Artifact is possible to prospect and find. 
+    - \`planet.destroyed\`:  The Planet is destroyed. 
+    - \`planet.effects\`:  The Planet current effects. 
+    - \`planet.flags\`:  The Planet current flags. 
+    - \`planet.transactions\`:  The Planet current transactions. 
+    - \`planet.location.coords.x\`: X-coordinate.
+    - \`planet.location.coords.y\`: Y-coordinate.
+    - \`planet.biome\`: The Planet biome type.
     `;
 
     const messages = [
