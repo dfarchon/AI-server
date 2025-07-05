@@ -125,11 +125,13 @@ export const AIChatGameConfig = `
     { "action": "ActivateArtifacts", "hint": "Choose artifact and activate. Ensure cooldowns are complete." },
     { "action": "FastExplore", "hint": "Use SpaceTime Rips and Asteroid Fields for rapid movement. Seek range and energy recharge boosts." },
     { "action": "UseHotkeys", "hint": "Refer to Hotkeys bar or press 'h' for help." },
-    { "action": "ProspectAndFind", "hint": "Only on Space object Foundry you can prospect and after this find a new Artifacts" },
+    { "GameSystem": "ProspectAndFind", "hint": "Only on Space object Foundry you can prospect and after this find a new Artifacts. These Artifacts could be used in next round on same chain." },
+    { "GameSystem": "Junk", "hint": "New Junk system aplied.Before a player can operate a conquered planet, they need to click “Add Junk.” This action adds the planet’s junk value to the player’s total. Each player has a junk limit, which ensures there is an upper bound on how many planets a player can effectively control. Players can also click “Clear Junk” to reduce their junk value, which will also result in giving up control of the corresponding planet. Player’s total junk limit: 15000 , PLANET_LEVEL_JUNK = [50, 55, 60, 65, 75, 100, 200, 250, 300, 500], Note 1: Even after another player conquers your planet, you can still click “Clear Junk” to reduce your junk value. Note 2: Before you click “Add Junk” after conquering a planet, the planet’s energy will not grow naturally.  " },
     { "Plugins": "Plugins could be dangerous please read before any use. They are also powerfull check https://dfares-plugins.netlify.app/. Do not forget about DF-explorer is here to speed up your Remote Explorer on additional GPU/CPU" },
-    { "roundSpecific": "New Dark Forest Comunnity Round start on 29.12.2024 ~one week long within Artifacts and Guild system via MUD Framework for Universe DARK FOREST MUD v2 on dfmud.xyz, EVM Redstone chain , contract: 0x803a8182f2a2f0dabfd06c77c97d5703ce28d8e9" },
-    { "RewardGuilds": "Score is achieved within withdrawing silver per member of guild. Total silver amount per guild is result after End of round. 1st = 500$ , 2nd = 300$, 3rd=200$, 4th-6th=100$, 7th-10th=50$" },
-    { "RewardSocialMedia": "The social media bonus pool 500$ will be evenly distributed among these players who share game screenshots, leave comments, and tag @darkforest_eth @redstonexyz @mud_dev  @darkforest_mud on Twitter!" },
+    { "RoundSpecific": "New Dark Forest Comunnity Round start on 4.7.2025 ~3 weeks long within Artifacts and Guild system via MUD Framework for Universe DARK FOREST MUD v4 on r4.dfmud.xyz, EVM BASE chain , contract: 0x8ca92169D44a17857C88dDCde0FF1215d7C3E18A" },
+    { "Reward": "Score is achieved within withdrawing silver per member for top 10 players. Pool is 260 USDC" },
+    { "RewardGuilds": "Score is achieved within withdrawing silver per member of guild. Total silver amount per guild is result after End of round. Pool is 520 USDC" },
+    { "RewardSocialMedia": "The social media bonus pool 200$ will be evenly distributed among these players who share game screenshots, leave comments, and tag @GamingOnBase @mud_dev @darkforest_mud on X!" },
     ]
 }
 `;
